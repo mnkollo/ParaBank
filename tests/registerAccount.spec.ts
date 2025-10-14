@@ -11,7 +11,7 @@ test.beforeEach(async ({ page }) => {
   const onHomePage = new HomePage(page);
   await page.goto('https://parabank.parasoft.com/parabank/index.htm');
   await expect(page).toHaveTitle(/ParaBank/);
-  await onHomePage.login('greenwood','Welcome!1')
+  await onHomePage.login(process.env.USERNAME!, process.env.PASSWORD!);
 
 });
 
