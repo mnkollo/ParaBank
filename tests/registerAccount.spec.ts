@@ -17,19 +17,19 @@ test.beforeEach(async ({ page }) => {
 
 test('Register User', async ({ page }) => {
   const registerPage = new RegisterPage(page);
-  const homePage = new HomePage(page);
+  const onHomePage = new HomePage(page);
   username = fakeUser.username;
   password = fakeUser.password; 
 
-  await homePage.logout();
-  await homePage.registerPage();
+  await onHomePage.logout();
+  await onHomePage.navigateToRegisterPage();
   await registerPage.fillUpRegistrationForm(fakeUser.firstName, fakeUser.lastName, fakeUser.address, fakeUser.city, fakeUser.state, fakeUser.zipCode, fakeUser.phoneNumber, fakeUser.ssn, username, password);
 });
 
 test('Open New Savings Account', async ({ page }) => {
   const openNewAccountPage = new OpenNewAccountPage(page);
-  const homePage = new HomePage(page);
+  const onHomePage = new HomePage(page);
 
-  await homePage.openNewAccountPage();
+  await onHomePage.navigateToOpenNewAccountPage();
   await openNewAccountPage.openSavingsAccount('SAVINGS');
 });

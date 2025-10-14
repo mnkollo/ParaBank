@@ -16,35 +16,35 @@ async login(username: string, password: string) {
     await this.page.locator('a', { hasText: 'Log Out' }).click();
   }
 
-  async registerPage() {
+  async navigateToRegisterPage() {
     await this.page.locator('a', { hasText: 'Register' }).click();
   }
 
-  async openNewAccountPage() {
+  async navigateToOpenNewAccountPage() {
     await this.page.locator('a', { hasText: 'Open New Account' }).click();
   }
 
-  async accountOverviewPage() {
+  async navigateToAccountOverviewPage() {
     await this.page.locator('a', { hasText: 'Accounts Overview' }).click();
   } 
 
-  async transferFundsPage() {
+  async navigateToTransferFundsPage() {
     await this.page.locator('a', { hasText: 'Transfer Funds' }).click();
   }
 
-  async billPayPage() {
-  await this.page.locator('a', { hasText: 'Bill Pay' }).click();
+  async navigateToBillPayPage() {
+    await this.page.locator('a', { hasText: 'Bill Pay' }).click();
   }
 
-  async findTransactionsPage() {
+  async navigateToFindTransactionsPage() {
     await this.page.locator('a', { hasText: 'Find Transactions' }).click();
   }
 
-  async updateContactInfoPage() {
+  async navigateToUpdateContactInfoPage() {
     await this.page.locator('a', { hasText: 'Update Contact Info' }).click();
   }
-  
-  async requestLoanPage() {
+
+  async navigateToRequestLoanPage() {
     await this.page.locator('a', { hasText: 'Request Loan' }).click();
   }
 }
