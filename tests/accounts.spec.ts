@@ -9,10 +9,7 @@ let accountId: string;
 test.describe.serial('Account creation flow', () => {
 
   test.beforeEach(async ({ page }) => {
-    const home = new HomePage(page);
     await page.goto(process.env.BASE_URL!);
-    await expect(page).toHaveTitle(/ParaBank/);
-    await home.login(process.env.USERNAME!, process.env.PASSWORD!);
   });
 
   test('Open New Savings Account', async ({ page }) => {

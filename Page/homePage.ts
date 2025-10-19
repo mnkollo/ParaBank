@@ -2,18 +2,21 @@ import { Page } from '@playwright/test';
 
 export class HomePage {
   readonly page: Page;
-  
+
   constructor(page: Page) {
     this.page = page;
   }
-async login(username: string, password: string) {
+  async login(username: string, password: string) {
     await this.page.locator('[name="username"]').fill(username);
     await this.page.locator('[name="password"]').fill(password);
     await this.page.locator('input[value="Log In"]').click();
   }
 
   async logout() {
-    await this.page.locator('a', { hasText: 'Log Out' }).click();
+    const welcomeMessage = this.page.locator('#leftPanel p', { hasText: 'Welcome' });
+    if (await welcomeMessage.isVisible()) {
+      await this.page.locator('a', { hasText: 'Log Out' }).click();
+    }
   }
 
   async navigateToRegisterPage() {
@@ -26,7 +29,7 @@ async login(username: string, password: string) {
 
   async navigateToAccountOverviewPage() {
     await this.page.locator('a', { hasText: 'Accounts Overview' }).click();
-  } 
+  }
 
   async navigateToTransferFundsPage() {
     await this.page.locator('a', { hasText: 'Transfer Funds' }).click();

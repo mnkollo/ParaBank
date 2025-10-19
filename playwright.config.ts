@@ -37,8 +37,18 @@ export default defineConfig({
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      use: { 
+        ...devices['Desktop Chrome'],
+        storageState: '.auth/login.json',
+       },
+      dependencies: ['setup'],
     },
+    {
+      name: 'setup',
+      use: { ...devices['Desktop Chrome'] },
+      testMatch: /.*\.setup\.ts/,
+    },
+    
 
     // {
     //   name: 'firefox',
