@@ -1,7 +1,9 @@
-import { test, expect } from '@playwright/test';
+import { test as setup } from '@playwright/test';
+import { expect } from '@playwright/test';
+
 import { HomePage } from '../Page/homePage';
 
-  test('write login session data', async ({ page }) => {
+  setup('write login session data', async ({ page }) => {
     const onHomePage = new HomePage(page);
     await page.goto(process.env.BASE_URL!);
     await expect(page).toHaveTitle(/ParaBank/);
