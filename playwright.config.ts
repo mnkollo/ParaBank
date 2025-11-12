@@ -1,6 +1,5 @@
 import { defineConfig, devices } from '@playwright/test';
-import dotenv from 'dotenv';
-dotenv.config();
+
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
@@ -13,7 +12,7 @@ dotenv.config();
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
-  testDir: './tests',
+  testDir: './e2e',
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -37,18 +36,8 @@ export default defineConfig({
   projects: [
     {
       name: 'chromium',
-      use: { 
-        ...devices['Desktop Chrome'],
-        storageState: '.auth/login.json',
-       },
-      dependencies: ['setup'],
-    },
-    {
-      name: 'setup',
       use: { ...devices['Desktop Chrome'] },
-      testMatch: /.*\.setup\.ts/,
     },
-    
 
     // {
     //   name: 'firefox',

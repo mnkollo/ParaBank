@@ -12,7 +12,7 @@ test.describe('Register Scenarios', () => {
   test('should register successfully with valid data', async ({ page }) => {
 
         const registerPage = new RegisterPage(page);
-        await registerPage.fillUpRegistrationForm("Michael", 'Smith', '123 main st', 'Fort Worth', 'TX', '76101', '8175551234', '123-45-6789', 'tonytest', 'Password123!');
+        await registerPage.fillUpRegistrationForm("Michael", 'Smith', '123 main st', 'Fort Worth', 'TX', '76101', '8175551234', '123-45-6789', 'Alfalfa', 'Password123!');
   });
   test('Verify unable to register without SSN', async ({ page }) => {
 
