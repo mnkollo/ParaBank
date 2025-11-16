@@ -26,8 +26,11 @@ export class RegisterPage {
 
     if (ssn === '') {
       await expect(this.page.locator('.error')).toHaveText('Social Security Number is required.');
-      
-    } 
+
+    }
+    else if (address === '') {
+      await expect(this.page.locator('.error')).toHaveText('Address is required.');
+    }
     else if (address === '') {
       await expect(this.page.locator('.error')).toHaveText('Address is required.');
 
