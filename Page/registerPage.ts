@@ -31,8 +31,8 @@ export class RegisterPage {
     else if (address === '') {
       await expect(this.page.locator('.error')).toHaveText('Address is required.');
     }
-    else if (address === '') {
-      await expect(this.page.locator('.error')).toHaveText('Address is required.');
+    else if (firstName === '') {
+      await expect(this.page.locator('.error')).toHaveText('First name is required.');
 
     } else {
       await expect(this.page.locator('h1[class="title"]')).toHaveText(`Welcome ${username}`);

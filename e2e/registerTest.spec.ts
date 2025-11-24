@@ -1,5 +1,6 @@
 import { test } from '@playwright/test';
 import { RegisterPage } from '../Page/registerPage';
+import { fakeUser } from '../Utils/fakerData';
 
 
 test.describe('Register Scenarios', () => {
@@ -12,16 +13,26 @@ test.describe('Register Scenarios', () => {
   test('should register successfully with valid data', async ({ page }) => {
 
         const registerPage = new RegisterPage(page);
-        await registerPage.fillUpRegistrationForm("Michael", 'Smith', '123 main st', 'Fort Worth', 'TX', '76101', '8175551234', '123-45-6789', 'gregory', 'Password123!');
+        await registerPage.fillUpRegistrationForm(fakeUser.firstName, fakeUser.lastName, fakeUser.address, fakeUser.city, fakeUser.state, fakeUser.zipCode, fakeUser.phoneNumber, fakeUser.ssn, fakeUser.username, fakeUser.password);
   });
   test('Verify unable to register without SSN', async ({ page }) => {
 
         const registerPage = new RegisterPage(page);
-        await registerPage.fillUpRegistrationForm("Michael", 'Smith', '123 main st', 'Fort Worth', 'TX', '76101', '8175551234', '', 'testuser1!43892', 'Password123!');
+        await registerPage.fillUpRegistrationForm(fakeUser.firstName, fakeUser.lastName, fakeUser.address, fakeUser.city, fakeUser.state, fakeUser.zipCode, fakeUser.phoneNumber, '', fakeUser.username, fakeUser.password);
   });
   test('Verify unable to register without address', async ({ page }) => {
 
         const registerPage = new RegisterPage(page);
-        await registerPage.fillUpRegistrationForm("Michael", 'Smith', '', 'Fort Worth', 'TX', '76101', '8175551234', '123-45-6789', 'testuser1!43892', 'Password123!');
+        await registerPage.fillUpRegistrationForm(fakeUser.firstName, fakeUser.lastName, '', fakeUser.city, fakeUser.state, fakeUser.zipCode, fakeUser.phoneNumber, fakeUser.ssn, fakeUser.username, fakeUser.password);
+  });
+  test('Verify unable to register without phone number', async ({ page }) => {
+
+        const registerPage = new RegisterPage(page);
+        await registerPage.fillUpRegistrationForm(fakeUser.firstName, fakeUser.lastName, fakeUser.address, fakeUser.city, fakeUser.state, fakeUser.zipCode, '', fakeUser.ssn, fakeUser.username, fakeUser.password);
+  });
+   test('Verify unable to register without valid first name', async ({ page }) => {
+
+        const registerPage = new RegisterPage(page);
+        await registerPage.fillUpRegistrationForm('', fakeUser.lastName, fakeUser.address, fakeUser.city, fakeUser.state, fakeUser.zipCode, fakeUser.phoneNumber,fakeUser.ssn, fakeUser.username, fakeUser.password);
   });
 });
