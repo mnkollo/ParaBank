@@ -50,4 +50,7 @@ export class HomePage {
   async navigateToRequestLoanPage() {
     await this.page.locator('a', { hasText: 'Request Loan' }).click();
   }
+  async navigateToCustomerLookupPage() {
+    await this.page.locator('a', { hasText: 'Forgot login info?' }).click();
+  }
 }

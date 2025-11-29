@@ -18,9 +18,13 @@ export class CustomerLookupPage {
     await this.page.locator('[id="address.state"]').fill(state);
     await this.page.locator('[id="address.zipCode"]').fill(zipCode);
     await this.page.locator('[id="ssn"]').fill(ssn);
-    await this.page.locator('input[type="submit"]').click();
-    if (ssn === '') {
+    await this.page.locator('[value="Find My Login Info"]').click();
+    if (ssn == '') {
       await expect(this.page.locator('.error')).toHaveText('Social Security Number is required.');
+
+    }
+     if (state === '') {
+      await expect(this.page.locator('.error')).toHaveText('State is required.');
 
     }
     else if (address === '') {
