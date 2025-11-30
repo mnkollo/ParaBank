@@ -25,8 +25,9 @@ test.describe('Forgot Login Scenerios', () => {
 
       test('should not register successfully with no ssn', async ({ page }) => {
             const homePage = new HomePage(page);
-            const customerLookupPage = new CustomerLookupPage(page);
             await homePage.navigateToCustomerLookupPage();
+
+            const customerLookupPage = new CustomerLookupPage(page);
             await customerLookupPage.fillUpCustomerLookupForm(fakeUser.firstName, fakeUser.lastName, fakeUser.address, fakeUser.city, fakeUser.state, fakeUser.zipCode, fakeUser.phoneNumber,'', fakeUser.username, fakeUser.password);
       });
 

@@ -19,11 +19,11 @@ export class CustomerLookupPage {
     await this.page.locator('[id="address.zipCode"]').fill(zipCode);
     await this.page.locator('[id="ssn"]').fill(ssn);
     await this.page.locator('[value="Find My Login Info"]').click();
-    if (ssn == '') {
-      await expect(this.page.locator('.error')).toHaveText('Social Security Number is required.');
+    if (ssn === '') {
+      await expect(this.page.locator('[id="ssn.errors"]')).toHaveText('Social Security Number is required.');
 
     }
-     if (state === '') {
+    else if (state === '') {
       await expect(this.page.locator('.error')).toHaveText('State is required.');
 
     }

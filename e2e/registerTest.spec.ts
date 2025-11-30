@@ -9,8 +9,7 @@ test.describe('Register Scenarios', () => {
     await page.goto('https://parabank.parasoft.com/parabank/register.htm');
   });
 
-  // ✅ Positive Test 1: Successful registration
-  test('should register successfully with valid data', async ({ page }) => {
+  test('Verify Unable to register successfully with invalid data', async ({ page }) => {
 
         const registerPage = new RegisterPage(page);
         await registerPage.fillUpRegistrationForm(fakeUser.firstName, fakeUser.lastName, fakeUser.address, fakeUser.city, fakeUser.state, fakeUser.zipCode, fakeUser.phoneNumber, fakeUser.ssn, fakeUser.username, fakeUser.password);

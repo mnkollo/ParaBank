@@ -8,7 +8,7 @@ export const fakeUser = {
   state: faker.location.state(),
   zipCode: faker.location.zipCode(),
   phoneNumber: '1234567890',
-  ssn: '123-45-6789',
+  ssn: '123456789',
   username: `user${Date.now()}`,
   password: 'Password123!'
 };
