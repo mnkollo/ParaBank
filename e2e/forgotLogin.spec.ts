@@ -9,7 +9,7 @@ test.describe('Forgot Login Scenerios', () => {
             await page.goto('https://parabank.parasoft.com/parabank/register.htm');
       });
 
-      test('should register successfully with valid data', async ({ page }) => {
+      test('Verify unable to register successfully with invalid data', async ({ page }) => {
             const homePage = new HomePage(page);
             const customerLookupPage = new CustomerLookupPage(page);
             await homePage.navigateToCustomerLookupPage();
