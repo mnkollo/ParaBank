@@ -10,5 +10,7 @@ export const fakeUser = {
   phoneNumber: '1234567890',
   ssn: '123456789',
   username: `user${Date.now()}`,
-  password: 'Password123!'
-};
+  password: 'Password123!',
+  account: faker.string.numeric(8),
+  amount: `${faker.number.float({ min: 1, max: 9999}).toFixed(2)}`
+}

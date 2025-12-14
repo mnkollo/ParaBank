@@ -1,12 +1,14 @@
 import { test } from '@playwright/test';
 import { RegisterPage } from '../Page/registerPage';
 import { fakeUser } from '../Utils/fakerData';
+import { HomePage } from '../Page/homePage';
 
 
 test.describe('Register Scenarios', () => {
 
      test.beforeEach(async ({ page }) => {
     await page.goto('https://parabank.parasoft.com/parabank/register.htm');
+    
   });
 
   // ✅ Positive Test 1: Successful registration
